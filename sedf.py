@@ -5,11 +5,12 @@ from optparse import OptionParser
 import itertools
 
 def main():
-  parser = OptionParser() 
-  parser.add_option("-f", "--file", dest="inputMetaFile")
-  parser.add_option("-o", "--output", dest="outputFile")
-  parser.add_option("-c", "--conbination", action="store_true", dest="conbination")
-  parser.add_option("-s", "--split", dest="split_symbol")
+  usage = "usage: %prog metaCount [options]\n  Example: ./sedf 3 -f metaFile -c\n  this will generate a list of password conbination of your metaFile"
+  parser = OptionParser(usage=usage) 
+  parser.add_option("-f", dest="inputMetaFile")
+  parser.add_option("-o", dest="outputFile")
+  parser.add_option("-c", action="store_true", dest="conbination")
+  parser.add_option("-s", dest="split_symbol")
   (options, args) =  parser.parse_args() 
 
   if options.inputMetaFile:
